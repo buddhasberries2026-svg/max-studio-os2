@@ -1,0 +1,11 @@
+def generate_script():
+    return """
+Welcome to Clear Mind Canine.
+
+Today’s 5-minute training focuses on calm behavior capture.
+
+We mark and reward quiet sits, relaxed stands, and calm downs...
+Always stay soft, calm, and consistent.
+
+Let’s begin shaping calm behavior through timing and reward clarity.
+"""
