@@ -1,0 +1,20 @@
+import subprocess
+
+def render_video(audio_path, frames):
+    output = "output/final_video.mp4"
+
+    command = [
+        "ffmpeg",
+        "-y",
+        "-loop", "1",
+        "-i", frames[0],
+        "-i", audio_path,
+        "-c:v", "libx264",
+        "-c:a", "aac",
+        "-shortest",
+        output
+    ]
+
+    subprocess.run(command)
+
+    return output
