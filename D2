@@ -1,0 +1,28 @@
+from fastapi import FastAPI, Request
+import subprocess
+import hmac
+import hashlib
+
+app = FastAPI()
+
+SECRET = "your_github_secret"
+
+def verify(body, sig):
+    mac = hmac.new(SECRET.encode(), body, hashlib.sha256)
+    return hmac.compare_digest("sha256=" + mac.hexdigest(), sig)
+
+@app.post("/webhook")
+async def webhook(req: Request):
+    body = await req.body()
+    sig = req.headers.get("X-Hub-Signature-256")
+
+    if not verify(body, sig):
+        return {"error": "invalid signature"}
+
+    event = req.headers.get("X-GitHub-Event")
+
+    if event == "push":
+        print("🚀 Pipeline triggered from GitHub push")
+        subprocess.Popen(["python", "backend/pipeline.py"])
+
+    return {"status": "ok"}
