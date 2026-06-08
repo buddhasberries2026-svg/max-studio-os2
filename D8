@@ -1,0 +1,4 @@
+def upload_youtube(video_path):
+    print(f"Uploading {video_path} to YouTube...")
+    # later: YouTube Data API integration
+    return True
