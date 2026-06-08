@@ -1,0 +1,26 @@
+from jobs.script_generator import generate_script
+from jobs.voice_generator import generate_voice
+from jobs.video_generator import generate_visuals
+from jobs.ffmpeg_editor import render_video
+from jobs.uploader import upload_youtube
+
+def run_pipeline():
+    print("🧠 Generating script...")
+    script = generate_script()
+
+    print("🎙️ Generating voice...")
+    audio_path = generate_voice(script)
+
+    print("🎬 Generating visuals...")
+    video_assets = generate_visuals(script)
+
+    print("🎞️ Rendering final video...")
+    final_video = render_video(audio_path, video_assets)
+
+    print("📤 Uploading to YouTube...")
+    upload_youtube(final_video)
+
+    print("✅ Pipeline complete!")
+
+if __name__ == "__main__":
+    run_pipeline()
