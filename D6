@@ -1,0 +1,11 @@
+import os
+
+def generate_visuals(script):
+    # placeholder system (later: Runway API or image prompts)
+    frames = []
+
+    for i in range(1, 6):
+        frame_path = f"assets/images/frame_{i}.png"
+        frames.append(frame_path)
+
+    return frames
