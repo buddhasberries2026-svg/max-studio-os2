@@ -1,0 +1,26 @@
+clear-mind-canine/
+│
+├── backend/
+│   ├── webhook_server.py
+│   ├── pipeline.py
+│   ├── config.py
+│   ├── jobs/
+│   │   ├── script_generator.py
+│   │   ├── voice_generator.py
+│   │   ├── video_generator.py
+│   │   ├── ffmpeg_editor.py
+│   │   └── uploader.py
+│
+├── assets/
+│   ├── audio/
+│   ├── images/
+│   ├── video/
+│
+├── episodes/
+│   └── episode_1.txt
+│
+├── output/
+│   └── final_video.mp4
+│
+├── requirements.txt
+└── README.md
